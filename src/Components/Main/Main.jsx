@@ -70,11 +70,24 @@ const Main = () => {
 
             <div className="main-bottom">
                 <div className="search-box">
-                    <input onChange={(e)=> setInput(e.target.value)} value={input} type="text" placeholder='Ask Gemni' name="search" id="search" />
+                <input
+                            onChange={(e) => setInput(e.target.value)}
+                            onKeyDown={(e) => {
+                                if (e.key === 'Enter') {
+                                    e.preventDefault();
+                                    onSent();
+                                }
+                            }}
+                            value={input}
+                            type="text"
+                            placeholder="Ask Gemni"
+                            name="search"
+                            id="search"
+                        />
                     <div>
                         <img src={assets.gallery_icon} alt="" />
                         <img src={assets.mic_icon} alt="" />
-                        <img onClick={()=>onSent()} src={assets.send_icon} alt="" />
+                        {input ?<img onClick={()=>onSent()} src={assets.send_icon} alt="" /> : null}
                     </div>
                 </div>
                 <p className="bottom-info">
