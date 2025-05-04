@@ -52,6 +52,7 @@
   
   .recent {
     margin-top: 10px;
+    animation: fadeIn 1.5s;
   }
   
   .recent-title {
@@ -100,3 +101,8 @@
   .bottm-item {
     padding: 10px;
   }
+@media (max-width : 600px) {
+  .sidebar{
+    display: none;
+  }
+}
